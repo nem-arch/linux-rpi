@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:  
   build:
     name: build-linux-aarch64-rpi4b-bcm2711
-    
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.1.0
       - uses: uraimo/run-on-arch@v2.0.5
