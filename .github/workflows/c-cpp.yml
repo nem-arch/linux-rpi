@@ -5,7 +5,6 @@ on: [push, pull_request]
 jobs:  
   build:
     name: build-linux-aarch64-rpi4b-bcm2711
-    runs-on: archarm_latest
     
     steps:
       - uses: actions/checkout@v2.1.0
