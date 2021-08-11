@@ -4,12 +4,18 @@ on: [push, pull_request]
 
 jobs:  
   build:
+    name: build-linux-aarch64-rpi4b-bcm2711
     runs-on: archarm-latest
+    
     steps:
-    - name: make -j4 ARCH=arm64 bcm2711_defconfig
-      with:
-        arch: aarch64
-        distro: archarm-latest
+      - uses: actions/checkout@v2.1.0
+      - uses: uraimo/run-on-arch@v2.0.5
+        with:
+          arch: aarch64
+          distro: archarm-latest
+      - name: Config
         run:
           make -j4 ARCH=arm64 bcm2711_defconfig
+      - name: Build
+        run:
           make -j4 ARCH=arm64
