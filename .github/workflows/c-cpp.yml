@@ -1,0 +1,15 @@
+name: Linux-AArch64-RPi4B-bcm2711
+
+on: [push, pull_request]
+
+jobs:  
+  build:
+    runs-on: archarm-latest
+    steps:
+    - name: make -j4 ARCH=arm64 bcm2711_defconfig
+      with:
+        arch: aarch64
+        distro: archarm-latest
+        run:
+          make -j4 ARCH=arm64 bcm2711_defconfig
+          make -j4 ARCH=arm64
