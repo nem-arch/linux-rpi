@@ -12,7 +12,7 @@ jobs:
       - uses: uraimo/run-on-arch@v2.0.5
         with:
           arch: aarch64
-          distro: archarm-latest
+          distro: archarm_latest
       - name: Config
         run:
           make -j4 ARCH=arm64 bcm2711_defconfig
