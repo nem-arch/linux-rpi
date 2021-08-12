@@ -8,11 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.1.0
-      - uses: uraimo/run-on-arch-action@v2.1.1
         name: Config & Build
-        with:
-          arch: aarch64
-          distro: archarm_latest
-          run:
-            make -j4 ARCH=arm64 bcm2711_defconfig
-            make -j4 ARCH=arm64
+        run:
+          make -j4 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig
+          make -j4 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
