@@ -7,5 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.1.0
+    - run: sudo apt-get install aarch64-linux-gnu-gcc
     - run: make -j4 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig
     - run: make -j4 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
