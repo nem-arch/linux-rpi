@@ -2,13 +2,10 @@ name: Linux-AArch64-RPi4B-bcm2711
 
 on: [push, pull_request]
 
-jobs:  
-  build:
-    name: build-linux-aarch64-rpi4b-bcm2711
+jobs:
+  build-linux-aarch64-rpi4b-bcm2711:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.1.0
-        name: Config & Build
-        run:
-          make -j4 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig
-          make -j4 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+    - uses: actions/checkout@v2.1.0
+    - run: make -j4 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bcm2711_defconfig
+    - run: make -j4 ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
